@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,12 +27,15 @@ public class Address {
 	 private String streetAddress;
 	 
 	 
+	 
 	 public String getStreetAddress() {
 		return streetAddress;
 	}
 	public void setStreetAddress(String streetAddress) {
 		this.streetAddress = streetAddress;
 	}
+	
+	
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "address")
 	private Set<Student> student;
 	 
@@ -54,6 +58,7 @@ public class Address {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 
 	
 }
