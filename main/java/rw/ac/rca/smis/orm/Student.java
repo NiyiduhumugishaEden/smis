@@ -19,15 +19,15 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="student")
-public class Student {
+public class Student extends Person{
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	private Date dateOfBirth;
-	private char gender;
-	private String name;
+	public Student( String name, Date date, char gender) {
+		super( name, date, gender);
+		// TODO Auto-generated constructor stub
+	}
 	
+
+
 	@ManyToOne
 	private  Address address;
     @ManyToMany
@@ -36,44 +36,6 @@ public class Student {
 	
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "student")
 	private Set<Mark> marks;
-	
-	public Student( Course course,String name, Date dateOfBirth, char gender,
-			Address address) {
-		this.name = name;
-		this.dateOfBirth = dateOfBirth;
-		this.gender = gender;
-		this.address = address;
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 	
 	public Set<Mark> getMarks() {
 		return marks;
@@ -90,35 +52,6 @@ public class Student {
 		this.courses = courses;
 	}
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-
-	public char getGender() {
-		return gender;
-	}
-	public void setGender(char gender) {
-		this.gender = gender;
-	}
-	
-
 	public Address getAddress() {
 		return address;
 	}

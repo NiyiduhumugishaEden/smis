@@ -16,21 +16,13 @@ import javax.persistence.Table;
 //import java.utils*;
 @Entity
 @Table(name="instructor")
-public class Instructor {
-	public Instructor(String name, Date dateOfBirth, char gender) {
-		super();
-		this.name = name;
-		this.dateOfBirth = dateOfBirth;
-		this.gender = gender;
-	}
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO )
-	 private int id;
-	  private  String name;
-	  private Date dateOfBirth;
-	  private char gender;
+public class Instructor extends Person{
 	  
-	  @ManyToOne
+	  public Instructor( String name, Date date, char gender) {
+		super( name, date, gender);
+		// TODO Auto-generated constructor stub
+	}
+	@ManyToOne
 	  @JoinColumn(name = "address_id")
 	  private  Address address;
 	  
@@ -38,31 +30,7 @@ public class Instructor {
 	  @JoinTable(name = "instructor_course", joinColumns = { @JoinColumn(name = "instructor_id") }, inverseJoinColumns = { @JoinColumn(name = "course_id") })
 	  private  List <Course> courses;
 	  
-  public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-	public char getGender() {
-		return gender;
-	}
-	public void setGender(char gender) {
-		this.gender = gender;
-	}
-	
+  
 	public Address getAddress() {
 		return address;
 	}

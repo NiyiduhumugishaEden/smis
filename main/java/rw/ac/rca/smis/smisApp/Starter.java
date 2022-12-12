@@ -25,7 +25,8 @@ public class Starter {
 		Instructor eden = new Instructor("Eden",date,'F');
 		eden.setAddress(add);
 		Course course1 = new Course(eden, 5, "Gui", 12);
-		Student student1 = new Student(course1,"eden",date,'f',add);
+		Student student1 = new Student("eden",date,'f');
+		eden.setAddress(add);
 		Mark mark = new Mark(course1,student1,150);
 		
 		
